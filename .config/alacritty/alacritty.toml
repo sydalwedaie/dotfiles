@@ -17,6 +17,7 @@ italic = { family = "UbuntuMono Nerd Font Mono" }
 bold_italic = { family = "UbuntuMono Nerd Font Mono" }
 size = 18 
 offset = { x = 0, y = 4 }
+glyph_offset = { x = 0, y = 2 }
 
 [window]
 decorations = "None"
