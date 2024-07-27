@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Sayed Alwedaie
+	email = 5216479+sydalwedaie@users.noreply.github.com 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+	excludesfile = /Users/sydalwedaie/.gitignore_global
+[color]
+	ui = auto
+[pull]
+	rebase = false
