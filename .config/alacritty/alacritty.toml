@@ -1,10 +1,5 @@
 import = [
-  # uncomment the flavour you want below:
-  # "~/.config/alacritty/catppuccin-latte.toml"
-  # "~/.config/alacritty/catppuccin-frappe.toml"
-  # "~/.config/alacritty/catppuccin-macchiato.toml"
   "~/.config/alacritty/everforest.toml"
-  # "~/.config/alacritty/catppuccin-mocha.toml"
 ]
 
 [colors]
@@ -16,16 +11,12 @@ bold = { family = "UbuntuMono Nerd Font Mono" }
 italic = { family = "UbuntuMono Nerd Font Mono" }
 bold_italic = { family = "UbuntuMono Nerd Font Mono" }
 size = 18 
-offset = { x = 0, y = 4 }
-glyph_offset = { x = 0, y = 2 }
+offset = { x = 0, y = 6 }
+glyph_offset = { x = 0, y = 3 }
 
 [window]
 decorations = "None"
 startup_mode = "Maximized"
 opacity = 0.9
 blur = true
-
-[window.padding]
-x = 7
-y = 7
 

@@ -85,3 +85,5 @@ alias ls='ls --color'
 # Shell integrations
 #####################
 eval "$(fzf --zsh)" # C-r to search history
+
+export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
