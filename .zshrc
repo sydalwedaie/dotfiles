@@ -78,7 +78,16 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview in 
 #####################
 # Aliases
 #####################
-alias ls='ls --color'
+alias ls='eza --icons --long --all --no-user --no-time --no-filesize --group-directories-first'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+
+
 
 
 #####################
@@ -87,3 +96,5 @@ alias ls='ls --color'
 eval "$(fzf --zsh)" # C-r to search history
 
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+
+export BAT_THEME=zenburn
