@@ -78,7 +78,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview in 
 #####################
 # Aliases
 #####################
-alias ls='eza --icons --long --all --no-user --no-time --no-filesize --group-directories-first'
+alias lz='eza --icons --long --all --no-user --no-time --group-directories-first'
+alias ls='ls --color'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -87,6 +88,8 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
 alias cdd='cd ~/dotfiles'
+alias getip="ifconfig en0 | grep 'inet ' | awk '{print $2}'"
+alias obs="code /Users/sydalwedaie/vaults/Alpine/.obsidian/snippets"
 
 
 
@@ -96,5 +99,13 @@ alias cdd='cd ~/dotfiles'
 eval "$(fzf --zsh)" # C-r to search history
 
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
 
 export BAT_THEME=zenburn
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by Windsurf
+export PATH="/Users/sydalwedaie/.codeium/windsurf/bin:$PATH"
