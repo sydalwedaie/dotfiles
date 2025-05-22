@@ -100,6 +100,7 @@ eval "$(fzf --zsh)" # C-r to search history
 
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/ctags/5.8_2/bin:$PATH"
 
 export BAT_THEME=zenburn
 
@@ -109,3 +110,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Added by Windsurf
 export PATH="/Users/sydalwedaie/.codeium/windsurf/bin:$PATH"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
