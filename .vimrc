@@ -41,12 +41,12 @@ filetype plugin on
 set mouse+=a
 
 " auto pair
-inoremap ` ``<left>
-inoremap ' ''<left>
-inoremap " ""<left>
-inoremap { {}<left>
-inoremap [ []<left>
-inoremap ( ()<left>
+"inoremap ` ``<left>
+"inoremap ' ''<left>
+"inoremap " ""<left>
+"inoremap { {}<left>
+"inoremap [ []<left>
+"inoremap ( ()<left>
 
 " toggle search highlight
 nnoremap <leader>h :set hlsearch! hlsearch?<cr>

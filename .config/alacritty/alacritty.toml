@@ -11,6 +11,7 @@ offset = { x = 0, y = 6 }
 glyph_offset = { x = 0, y = 3 }
 
 [window]
+dynamic_padding = true
 decorations = "Buttonless"
 startup_mode = "Maximized"
 opacity = 0.95
