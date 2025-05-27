@@ -1,3 +1,6 @@
+[env]
+TERM = "xterm-256color" 
+
 [colors]
 cursor = { text="#000000", cursor = "#fcba03"}
 
@@ -7,12 +10,12 @@ bold = { family = "UbuntuMono Nerd Font Mono" }
 italic = { family = "UbuntuMono Nerd Font Mono" }
 bold_italic = { family = "UbuntuMono Nerd Font Mono" }
 size = 18 
-offset = { x = 0, y = 6 }
-glyph_offset = { x = 0, y = 3 }
+offset = { x = 0, y = 5 }
+# glyph_offset = { x = 0, y = 3 }
 
 [window]
 dynamic_padding = true
-decorations = "Buttonless"
+decorations = "None"
 startup_mode = "Maximized"
 opacity = 0.95
 blur = true

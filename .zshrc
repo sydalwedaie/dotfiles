@@ -91,6 +91,15 @@ alias cdd='cd ~/dotfiles'
 alias getip="ifconfig en0 | grep 'inet ' | awk '{print $2}'"
 alias obs="code /Users/sydalwedaie/vaults/Alpine/.obsidian/snippets"
 
+alias python=python3
+
+
+
+#####################
+# Exports 
+#####################
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 
 #####################

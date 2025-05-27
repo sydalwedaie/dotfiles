@@ -1,8 +1,18 @@
+" if exists('+termguicolors')
+"  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"  set termguicolors
+"endif
 if has('termguicolors')
   set termguicolors
 endif
 
 let mapleader=' '
+
+" Inbox
+set splitbelow
+set breakindent
+set showcmd
 
 " tabs and indentation
 set tabstop=2
@@ -24,6 +34,9 @@ set cursorline
 syntax on
 set background=dark
 let g:everforest_better_performance = 1
+let g:everforest_background = 'hard'
+let g:everforest_transparent_background=0
+let g:lightline = { 'colorscheme': 'everforest'}
 
 " line numbers
 set number
@@ -39,14 +52,7 @@ filetype plugin on
 
 " other
 set mouse+=a
-
-" auto pair
-"inoremap ` ``<left>
-"inoremap ' ''<left>
-"inoremap " ""<left>
-"inoremap { {}<left>
-"inoremap [ []<left>
-"inoremap ( ()<left>
+set noshowmode
 
 " toggle search highlight
 nnoremap <leader>h :set hlsearch! hlsearch?<cr>
@@ -62,19 +68,9 @@ nnoremap <leader>{ diWi{}<esc>p
 nnoremap <leader>[ diWi[]<esc>p
 nnoremap <leader>( diWi()<esc>p
 
-packadd! everforest
 colorscheme everforest
 
 " Use a line cursor within insert mode and a block cursor everywhere else.
-" "
-" " Reference chart of values:
-" "   Ps = 0  -> blinking block.
-" "   Ps = 1  -> blinking block (default).
-" "   Ps = 2  -> steady block.
-" "   Ps = 3  -> blinking underline.
-" "   Ps = 4  -> steady underline.
-" "   Ps = 5  -> blinking bar (xterm).
-" "   Ps = 6  -> steady bar (xterm).
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
@@ -87,3 +83,15 @@ let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
 let g:netrw_altv=1
+
+call plug#begin()
+
+" List your plugins here
+Plug 'tpope/vim-sensible'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+Plug 'itchyny/lightline.vim'
+Plug 'sainnhe/everforest'
+
+call plug#end()
+
