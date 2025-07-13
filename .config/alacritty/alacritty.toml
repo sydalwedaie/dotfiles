@@ -9,9 +9,9 @@ normal = { family = "UbuntuMono Nerd Font Mono" }
 bold = { family = "UbuntuMono Nerd Font Mono" }
 italic = { family = "UbuntuMono Nerd Font Mono" }
 bold_italic = { family = "UbuntuMono Nerd Font Mono" }
-size = 18 
-offset = { x = 0, y = 5 }
-# glyph_offset = { x = 0, y = 3 }
+size = 17 
+offset = { x = 0, y = 4 }
+glyph_offset = { x = 0, y = 3 }
 
 [window]
 dynamic_padding = true
@@ -24,4 +24,35 @@ blur = true
 import = [
   "~/.config/alacritty/everforest.toml"
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

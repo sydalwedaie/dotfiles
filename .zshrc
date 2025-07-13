@@ -93,6 +93,11 @@ alias obs="code /Users/sydalwedaie/vaults/Alpine/.obsidian/snippets"
 
 alias python=python3
 
+alias fzf="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+
+# NVIM Aliases
+alias kvim='NVIM_APPNAME="kvim" nvim'
+alias avim='NVIM_APPNAME="avim" nvim'
 
 
 #####################
@@ -111,7 +116,7 @@ export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
 export PATH="/opt/homebrew/Cellar/ctags/5.8_2/bin:$PATH"
 
-export BAT_THEME=zenburn
+export BAT_THEME=ansi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
