@@ -1,7 +1,8 @@
 source $HOME/.config/avim/plugins.vim
 source $HOME/.config/avim/settings.vim
 source $HOME/.config/avim/keymaps.vim
-source $HOME/.config/avim/config-lsp.vim
+" source $HOME/.config/avim/config-lsp.vim
+source $HOME/.config/avim/config-lsp.lua
 source $HOME/.config/avim/config-telescope.lua
 source $HOME/.config/avim/goyo.vim
 

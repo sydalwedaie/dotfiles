@@ -9,6 +9,12 @@ Plug 'sainnhe/everforest'
 " Plug 'prabirshrestha/asyncomplete.vim'
 " Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
+Plug 'mason-org/mason.nvim'
+Plug 'mason-org/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
 Plug 'tpope/vim-commentary'
 Plug 'vimwiki/vimwiki'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
