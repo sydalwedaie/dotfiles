@@ -42,6 +42,8 @@ let g:everforest_transparent_background=0
 let g:lightline = { 'colorscheme': 'everforest'}
 colorscheme everforest
 
+hi! @punctuation.bracket gui=bold cterm=bold " Make brackets bold
+
 " line numbers
 set number
 set relativenumber

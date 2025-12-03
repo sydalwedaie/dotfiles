@@ -5,13 +5,19 @@ TERM = "xterm-256color"
 cursor = { text="#000000", cursor = "#fcba03"}
 
 [font]
-normal = { family = "UbuntuMono Nerd Font Mono" }
-bold = { family = "UbuntuMono Nerd Font Mono" }
-italic = { family = "UbuntuMono Nerd Font Mono" }
-bold_italic = { family = "UbuntuMono Nerd Font Mono" }
+normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
+bold = { family = "UbuntuMono Nerd Font", style = "Bold" }
+italic = { family = "UbuntuMono Nerd Font", style = "Italic" }
+bold_italic = { family = "UbuntuMono Nerd Font", style = "Bold Italic" }
+
+# normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+# bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+# italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+# bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+
 size = 17 
-offset = { x = 0, y = 4 }
-glyph_offset = { x = 0, y = 3 }
+offset = { x = 0, y = 7 }
+glyph_offset = { x = 0, y = 2 }
 
 [window]
 dynamic_padding = true

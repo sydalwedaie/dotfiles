@@ -13,3 +13,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " vim-like terminal window management
 tnoremap <C-w> <C-\><C-n><C-w>
 
+" Other
+nnoremap <leader>e <cmd>lua MiniFiles.open()<cr>
+noremap <Leader>g :Goyo<CR>
+noremap <Leader>s :set spell! spelllang=en_gb<CR>     
