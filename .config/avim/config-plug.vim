@@ -1,3 +1,7 @@
+" Prettier autoformat on save
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
 " Vimwiki Settings
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md'}]
 let g:vimwiki_global_ext = 0

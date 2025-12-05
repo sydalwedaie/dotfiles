@@ -16,6 +16,11 @@ set showbreak=↪
 set pumheight=10
 set scrolloff=1
 
+" Fixing leader w delay
+set timeout
+set timeoutlen=300  " Balance speed vs multi-key support; try 300-1000
+set ttimeoutlen=50  " Fast keycode timeout (ESC sequences)
+
 " tabs and indentation
 set tabstop=2
 set shiftwidth=2
@@ -39,7 +44,6 @@ let g:everforest_better_performance = 1
 let g:everforest_background = 'hard'
 let g:everforest_transparent_background=0
 
-let g:lightline = { 'colorscheme': 'everforest'}
 colorscheme everforest
 
 hi! @punctuation.bracket gui=bold cterm=bold " Make brackets bold
@@ -79,6 +83,3 @@ augroup mytabs
   autocmd FileType c setlocal tabstop=4 shiftwidth=4 noexpandtab
 augroup END
 
-" Prettier autoformat on save
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0

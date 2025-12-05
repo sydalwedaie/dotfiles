@@ -24,7 +24,6 @@ require('mini.files').setup({
   }
 })
 
-
 -- LSP
 require("mason").setup()
 require("mason-lspconfig").setup()
@@ -41,9 +40,7 @@ cmp.setup({
   }
 })
 
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 
 -- Telescope
 require('telescope').setup {
@@ -63,7 +60,7 @@ require('telescope').setup {
 -- Rainbow Delimiters
 vim.g.rainbow_delimiters = {
     highlight = {
-        'RainbowDelimiterYellow',
+        'yellow',
         'RainbowDelimiterRed',
         'RainbowDelimiterBlue',
         'RainbowDelimiterOrange',
@@ -73,18 +70,19 @@ vim.g.rainbow_delimiters = {
     },
 }
 
--- Indet Blankline
--- vim.api.nvim_set_hl(0, "IblIndent", { fg = "#4c566a" })
-
--- require("ibl").setup({
---   indent = {
---     char = "▏",
---   },
-
---   scope = {
---     show_end = false,
---     priority = 500,
---   }
--- })
-
 require('render-markdown').setup({})
+
+-- Vim git branch
+vim.g.lightline = {
+  colorscheme = "everforest",
+  active = {
+    left = {
+      { 'mode', 'paste' },
+      { 'gitbranch', 'readonly', 'filename', 'modified' },
+    },
+  },
+  component_function = {
+    gitbranch = 'gitbranch#name',
+  },
+}
+

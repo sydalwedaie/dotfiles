@@ -24,11 +24,10 @@ Plug 'MeanderingProgrammer/render-markdown.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'junegunn/goyo.vim'
 Plug 'nvim-mini/mini.files'
 Plug 'vimwiki/vimwiki'
-
-" Other
 Plug 'nvim-lua/plenary.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 

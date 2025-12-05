@@ -105,6 +105,8 @@ alias avim='NVIM_APPNAME="avim" nvim'
 #####################
 
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
+# export MANPAGER="sh -c 'fold -w 80 -s | less -R --use-color -Dd+r -Du+b'"
+
 
 
 #####################
