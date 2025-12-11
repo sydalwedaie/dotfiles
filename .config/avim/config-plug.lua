@@ -1,6 +1,9 @@
 -- Treesitter settings
 require'nvim-treesitter.configs'.setup {
-  highlight = { enable = true },
+  highlight = { 
+    enable = true,
+    disable = { "tmux" },
+  },
   auto_install = true,
 }
 
@@ -25,6 +28,7 @@ require('mini.files').setup({
 })
 
 -- LSP
+vim.diagnostic.config({ virtual_text = true })
 require("mason").setup()
 require("mason-lspconfig").setup()
 
@@ -70,15 +74,13 @@ vim.g.rainbow_delimiters = {
     },
 }
 
-require('render-markdown').setup({})
-
 -- Vim git branch
 vim.g.lightline = {
   colorscheme = "everforest",
   active = {
     left = {
       { 'mode', 'paste' },
-      { 'gitbranch', 'readonly', 'filename', 'modified' },
+      { 'giticon', 'gitbranch', 'readonly', 'filename', 'modified' },
     },
   },
   component_function = {

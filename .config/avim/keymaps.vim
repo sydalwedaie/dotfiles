@@ -15,5 +15,6 @@ tnoremap <C-w> <C-\><C-n><C-w>
 
 " Other
 nnoremap <leader>e <cmd>lua MiniFiles.open()<cr>
-noremap <Leader>g :Goyo<CR>
-noremap <Leader>s :set spell! spelllang=en_gb<CR>     
+nnoremap <Leader>g :Goyo<cr>
+nnoremap <Leader>s :set spell! spelllang=en_gb<cr>     
+nnoremap <leader>rm <cmd>MarkdownPreview<cr>

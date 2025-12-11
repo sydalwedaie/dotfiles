@@ -18,7 +18,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'hiphish/rainbow-delimiters.nvim'
 Plug 'brenoprata10/nvim-highlight-colors' 
-Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " Utilities
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
@@ -30,5 +29,6 @@ Plug 'nvim-mini/mini.files'
 Plug 'vimwiki/vimwiki'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 
 call plug#end()

@@ -17,11 +17,11 @@ bold_italic = { family = "UbuntuMono Nerd Font", style = "Bold Italic" }
 
 size = 17 
 offset = { x = 0, y = 7 }
-glyph_offset = { x = 0, y = 2 }
+glyph_offset = { x = 0, y = 4 }
 
 [window]
 dynamic_padding = true
-decorations = "None"
+decorations = "none"
 startup_mode = "Maximized"
 opacity = 0.95
 blur = true

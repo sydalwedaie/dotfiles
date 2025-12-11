@@ -31,4 +31,10 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter() 
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
+" Custom Writing Mode
+function! Writing()
+  
+endfunction
 
+" Markdown Preview
+let g:mkdp_browser = '/Applications/qutebrowser.app'
