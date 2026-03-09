@@ -10,7 +10,7 @@ set splitright
 set breakindent
 set showcmd
 set signcolumn=yes
-set updatetime=300
+set updatetime=200
 set linebreak
 set showbreak=↪
 set pumheight=10
@@ -18,7 +18,7 @@ set scrolloff=1
 
 " Fixing leader w delay
 set timeout
-set timeoutlen=300  " Balance speed vs multi-key support; try 300-1000
+set timeoutlen=600  " Balance speed vs multi-key support; try 300-1000
 set ttimeoutlen=50  " Fast keycode timeout (ESC sequences)
 
 " tabs and indentation

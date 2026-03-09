@@ -74,7 +74,7 @@ vim.g.rainbow_delimiters = {
     },
 }
 
--- Vim git branch
+-- Lightline
 vim.g.lightline = {
   colorscheme = "everforest",
   active = {
@@ -88,3 +88,5 @@ vim.g.lightline = {
   },
 }
 
+-- Autopair
+require("nvim-autopairs").setup {}

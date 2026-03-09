@@ -127,6 +127,9 @@ export NVM_DIR="$HOME/.nvm"
 # Added by Windsurf
 export PATH="/Users/sydalwedaie/.codeium/windsurf/bin:$PATH"
 
+# For imagemagick
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 

@@ -38,3 +38,4 @@ endfunction
 
 " Markdown Preview
 let g:mkdp_browser = '/Applications/qutebrowser.app'
+let g:mkdp_auto_start = 0

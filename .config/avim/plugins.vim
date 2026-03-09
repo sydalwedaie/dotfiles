@@ -9,7 +9,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 
 " Editing Tools
 Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'tpope/vim-surround'
 
 " Themes/Styles
