@@ -98,6 +98,11 @@ alias fzf="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transfor
 # NVIM Aliases
 alias kvim='NVIM_APPNAME="kvim" nvim'
 alias avim='NVIM_APPNAME="avim" nvim'
+alias bvim='NVIM_APPNAME="bvim" nvim'
+alias cvim='NVIM_APPNAME="cvim" nvim'
+
+# Apps
+alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
 
 
 #####################
@@ -133,5 +138,3 @@ export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_P
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Zoxide
-eval "$(zoxide init zsh)"

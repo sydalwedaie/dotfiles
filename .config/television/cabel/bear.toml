@@ -1,0 +1,10 @@
+[metadata]
+name = "bear"
+description = "bear notes"
+requirements = ["bearcli"]
+
+[source]
+command = "bearcli list"
+
+[preview]
+command = "bat -n --color=always '{}'"

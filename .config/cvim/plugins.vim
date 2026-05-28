@@ -18,22 +18,22 @@ Plug 'tpope/vim-surround'
 
 " Themes/Styles
 Plug 'sainnhe/everforest'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'commit': '90cd658'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }
+Plug 'ember-theme/nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate' }
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'hiphish/rainbow-delimiters.nvim'
 Plug 'brenoprata10/nvim-highlight-colors' 
 
 " Utilities
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-telescope/telescope.nvim', {'branch': 'master'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'itchyny/lightline.vim'
-Plug 'itchyny/vim-gitbranch'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'nvim-mini/mini.files'
 Plug 'vimwiki/vimwiki'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'stevearc/conform.nvim'
+Plug 'emmanueltouzery/apidocs.nvim'
 
 call plug#end()

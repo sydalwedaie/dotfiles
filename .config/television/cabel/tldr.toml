@@ -1,0 +1,10 @@
+[metadata]
+name = "tldr"
+description = "Browse and preview TLDR help pages"
+requirements = ["tldr"]
+
+[source]
+command = "tldr --list"
+
+[preview]
+command = "bat -n --color=always '{}'"
