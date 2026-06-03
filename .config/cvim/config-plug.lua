@@ -125,17 +125,33 @@ vim.g.rainbow_delimiters = {
 	},
 }
 
+-- Navic (breadcrumbs)
+require("nvim-navic").setup({
+	highlight = true,
+	depth_limit = 3,
+	lsp = {
+		auto_attach = true,
+		preference = nil,
+	},
+})
+
 -- Lualine
 require("lualine").setup({
 	options = {
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
+		always_show_tabline = false,
 	},
+
 	sections = {
 		lualine_b = {
 			"branch",
 		},
 		lualine_c = {
+			{
+				"filetype",
+				icon_only = true,
+			},
 			{
 				"filename",
 				path = 1,
@@ -143,8 +159,20 @@ require("lualine").setup({
 		},
 		lualine_x = {
 			{
-				"filetype",
-				icon_only = true,
+				"navic",
+				color_correction = "dynamic",
+				navic_opts = nil,
+			},
+		},
+	},
+
+	tabline = {
+		lualine_a = {
+			{
+				"tabs",
+				hide_filename_extension = false, -- Set true to hide extension
+				mode = 1,
+				show_modified_status = false,
 			},
 		},
 	},

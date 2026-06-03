@@ -35,5 +35,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'stevearc/conform.nvim'
 Plug 'emmanueltouzery/apidocs.nvim'
+Plug 'SmiteshP/nvim-navic'
 
 call plug#end()
