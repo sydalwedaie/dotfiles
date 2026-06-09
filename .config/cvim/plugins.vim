@@ -11,6 +11,9 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 
+Plug 'saghen/blink.cmp', { 'tag': 'v1.*' }
+Plug 'rafamadriz/friendly-snippets'
+
 " Editing Tools
 Plug 'tpope/vim-commentary'
 Plug 'windwp/nvim-autopairs'

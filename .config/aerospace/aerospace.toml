@@ -29,7 +29,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
 
 # Bindings
 [mode.main.binding]
-    alt-ctrl-semicolon = 'mode service' # Trigger service mode
+    alt-shift-semicolon = 'mode service' # Trigger service mode
 
     alt-tab = 'workspace-back-and-forth'
 
@@ -50,7 +50,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
 
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
-    alt-shift-equal = 'balance-sizes'
+    alt-0= 'balance-sizes'
 
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'

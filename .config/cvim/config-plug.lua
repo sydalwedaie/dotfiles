@@ -1,4 +1,6 @@
--- Treesitter settings
+---------------------------------------
+-- Treesitter
+---------------------------------------
 local parsers = {
 	"bash",
 	"c",
@@ -30,14 +32,19 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.treesitter.start()
 	end,
 })
+
 require("nvim-treesitter").install(parsers)
 
--- Nvim Highlight Colors Settings
+---------------------------------------
+-- Highlight Colors
+---------------------------------------
 require("nvim-highlight-colors").setup({
 	enable_tailwind = true,
 })
 
--- Mini.files settings
+---------------------------------------
+-- Mini.files
+---------------------------------------
 require("mini.files").setup({
 	mappings = {
 		reveal_cwd = "@",
@@ -53,40 +60,51 @@ require("mini.files").setup({
 	},
 })
 
+---------------------------------------
 -- LSP
+---------------------------------------
 
 vim.diagnostic.config({ virtual_text = true })
 require("mason").setup()
 require("mason-lspconfig").setup()
 
-local cmp = require("cmp")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("blink.cmp").setup({
+	keymap = { preset = "default" },
 
-cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-	}),
+	appearance = {
+		nerd_font_variant = "mono",
+	},
+
+	completion = {
+		menu = { border = "none" },
+		documentation = {
+			auto_show = true,
+			window = { border = "none" },
+		},
+	},
+
 	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "nvim_lsp_signature_help" },
-		{ name = "buffer" },
-		{ name = "path" },
+		default = { "lsp", "path", "snippets", "buffer" },
 	},
-	formatting = {
-		-- Show color highlight in auto complete menues
-		format = require("nvim-highlight-colors").format,
+
+	signature = { enabled = true },
+
+	fuzzy = {
+		implementation = "prefer_rust_with_warning",
 	},
+})
+
+-- Advertise blink's extended capabilities to ALL language servers
+vim.lsp.config("*", {
+	capabilities = require("blink.cmp").get_lsp_capabilities(),
 })
 
 -- Get html auto-comp in template literals
 vim.lsp.config("emmet_language_server", {
-	capabilities = capabilities,
 	filetypes = { "html", "css", "javascript", "javascriptreact", "typescriptreact", "vue", "svelte" },
 })
 
 vim.lsp.config("lua_ls", {
-	capabilities = capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -96,7 +114,9 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+---------------------------------------
 -- Telescope
+---------------------------------------
 require("telescope").setup({
 	pickers = {
 		find_files = {
@@ -112,7 +132,9 @@ require("telescope").setup({
 	},
 })
 
+---------------------------------------
 -- Rainbow Delimiters
+---------------------------------------
 vim.g.rainbow_delimiters = {
 	highlight = {
 		"yellow",
@@ -135,7 +157,9 @@ require("nvim-navic").setup({
 	},
 })
 
+---------------------------------------
 -- Lualine
+---------------------------------------
 require("lualine").setup({
 	options = {
 		component_separators = { left = "", right = "" },
@@ -178,15 +202,14 @@ require("lualine").setup({
 	},
 })
 
--- Autopair
+---------------------------------------
+-- Autopairs
+---------------------------------------
 require("nvim-autopairs").setup({})
 
--- Theme Ember
-require("ember").setup({
-	variant = "ember-soft",
-})
-
--- Formatting
+---------------------------------------
+-- Conform (Formatting)
+---------------------------------------
 require("conform").setup({
 	formatters_by_ft = {
 
@@ -202,5 +225,10 @@ require("conform").setup({
 	},
 })
 
--- ApiDocs
-require("apidocs").setup()
+---------------------------------------
+-- Themes
+---------------------------------------
+-- Ember
+require("ember").setup({
+	variant = "ember-soft",
+})
