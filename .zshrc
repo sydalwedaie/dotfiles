@@ -100,6 +100,7 @@ alias kvim='NVIM_APPNAME="kvim" nvim'
 alias avim='NVIM_APPNAME="avim" nvim'
 alias bvim='NVIM_APPNAME="bvim" nvim'
 alias cvim='NVIM_APPNAME="cvim" nvim'
+alias evim='NVIM_APPNAME="evim" nvim'
 
 # Apps
 alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'

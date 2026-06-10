@@ -1,0 +1,6 @@
+require("vim._core.ui2").enable({})
+require("options")
+require("plug")
+require("config")
+require("commands")
+require("keymaps")

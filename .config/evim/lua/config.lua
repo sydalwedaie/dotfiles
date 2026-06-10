@@ -64,9 +64,31 @@ require("mini.files").setup({
 -- LSP
 ---------------------------------------
 
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+	update_in_insert = false,
+	severity_sort = true,
+	float = { border = "rounded", source = "if_many" },
+	underline = { severity = { min = vim.diagnostic.severity.WARN } },
+
+	virtual_text = true,
+	virtual_lines = false,
+
+	-- Auto open the float, jump with with `[d` and `]d`
+	jump = {
+		on_jump = function(_, bufnr)
+			vim.diagnostic.open_float({
+				bufnr = bufnr,
+				scope = "cursor",
+				focus = false,
+			})
+		end,
+	},
+})
+
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	ensure_installed = { "cssls", "html", "ts_ls", "emmet_language_server", "lua_ls", "stylua" },
+})
 
 require("blink.cmp").setup({
 	keymap = { preset = "default" },
@@ -82,13 +104,11 @@ require("blink.cmp").setup({
 			window = { border = "none" },
 		},
 	},
-
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
 	},
-
+	snippets = { preset = "luasnip" },
 	signature = { enabled = true },
-
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
 	},
@@ -224,21 +244,38 @@ require("conform").setup({
 	formatters_by_ft = {
 		-- install stylelua seperately (Mason)
 		lua = { "stylua" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		javascript = { "prettierd" },
 
 		-- need the following two lines for webmanifest to work
-		json = { "prettier" },
-		webmanifest = { "prettier" },
+		json = { "prettierd" },
+		webmanifest = { "prettierd" },
 	},
 
 	format_on_save = {
-		timeout_ms = 500,
+		timeout_ms = 400,
+		lsp_format = "fallback",
 	},
 })
 
 ---------------------------------------
 -- Themes
 ---------------------------------------
+-- Everforest
+
+vim.g.everforest_enable_italic = 1
+vim.g.everforest_inlay_hints_background = "dimmed"
+vim.g.everforest_better_performance = 1
+vim.g.everforest_background = "hard"
+vim.g.everforest_transparent_background = 0
+
+vim.opt.background = "dark"
+vim.cmd.colorscheme("everforest")
+
 -- Ember
 require("ember").setup({
 	variant = "ember-soft",
 })
+
+vim.cmd("hi! @punctuation.bracket gui=bold cterm=bold")
