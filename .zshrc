@@ -1,19 +1,13 @@
 # Make Homebrew apps available in PATH
-if [[ -f "/opt/homebrew/bin/brew" ]] then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 #####################
 # ZINIT plugin manager
 #####################
-# Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-  mkdir -p "$(dirname $ZINIT_HOME)"
-  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
@@ -31,19 +25,19 @@ zstyle :prompt:pure:git:branch color 245
 #####################
 # zsh plugins
 #####################
-zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab # Fuzzy tab search
 
 # Load completions (for zsh-completions plugin)
 autoload -Uz compinit && compinit
 
+zinit light Aloxaf/fzf-tab # Fuzzy tab search
+zinit light zsh-users/zsh-syntax-highlighting
 
 #####################
 # Keybindings
 #####################
-bindkey -v 
+bindkey -v
 bindkey '^p' history-search-backward
 bindkey '\e[A' history-search-backward
 bindkey '^n' history-search-forward
@@ -69,7 +63,7 @@ setopt hist_find_no_dups
 #####################
 # Completion styling
 #####################
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # Colored completion
 zstyle ':completion:*' menu no # Suppress default menu, use fzf
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview in fzf
@@ -96,9 +90,6 @@ alias python=python3
 alias fzf="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 
 # NVIM Aliases
-alias kvim='NVIM_APPNAME="kvim" nvim'
-alias avim='NVIM_APPNAME="avim" nvim'
-alias bvim='NVIM_APPNAME="bvim" nvim'
 alias cvim='NVIM_APPNAME="cvim" nvim'
 alias evim='NVIM_APPNAME="evim" nvim'
 
@@ -107,7 +98,7 @@ alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
 
 
 #####################
-# Exports 
+# Exports
 #####################
 
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
@@ -119,16 +110,13 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 # Shell integrations
 #####################
 eval "$(fzf --zsh)" # C-r to search history
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
 export PATH="/opt/homebrew/Cellar/ctags/5.8_2/bin:$PATH"
 
 export BAT_THEME=ansi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Added by Windsurf
 export PATH="/Users/sydalwedaie/.codeium/windsurf/bin:$PATH"

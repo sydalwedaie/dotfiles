@@ -1,5 +1,5 @@
 ---------------------------------------
--- Treesitter
+-- TREESITTER
 ---------------------------------------
 local parsers = {
 	"bash",
@@ -36,34 +36,8 @@ vim.api.nvim_create_autocmd("FileType", {
 require("nvim-treesitter").install(parsers)
 
 ---------------------------------------
--- Highlight Colors
+-- DIAGNOSTICS
 ---------------------------------------
-require("nvim-highlight-colors").setup({
-	enable_tailwind = true,
-})
-
----------------------------------------
--- Mini.files
----------------------------------------
-require("mini.files").setup({
-	mappings = {
-		reveal_cwd = "@",
-	},
-
-	options = {
-		permanent_delete = true,
-		use_as_default_explorer = true,
-	},
-
-	windows = {
-		preview = true,
-	},
-})
-
----------------------------------------
--- LSP
----------------------------------------
-
 vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = true,
@@ -74,20 +48,20 @@ vim.diagnostic.config({
 	virtual_lines = false,
 
 	-- Auto open the float, jump with with `[d` and `]d`
-	jump = {
-		on_jump = function(_, bufnr)
-			vim.diagnostic.open_float({
-				bufnr = bufnr,
-				scope = "cursor",
-				focus = false,
-			})
-		end,
-	},
+	jump = { float = true },
 })
 
+---------------------------------------
+-- LSP
+---------------------------------------
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "cssls", "html", "ts_ls", "emmet_language_server", "lua_ls", "stylua" },
+	ensure_installed = { "cssls", "html", "ts_ls", "emmet_language_server", "lua_ls", "jsonls", "bashls" },
+})
+
+-- I needed this to install non-lsp stuff!
+require("mason-tool-installer").setup({
+	ensure_installed = { "prettierd", "prettier", "stylua", "beautysh" },
 })
 
 require("blink.cmp").setup({
@@ -108,16 +82,28 @@ require("blink.cmp").setup({
 		default = { "lsp", "path", "snippets", "buffer" },
 	},
 	snippets = { preset = "luasnip" },
-	signature = { enabled = true },
 	fuzzy = {
 		implementation = "prefer_rust_with_warning",
 	},
 })
 
 -- Advertise blink's extended capabilities to ALL language servers
+-- Add File watching capability (notify LSP of changes outside the editor)
 -- Fixed renaming modules not showing up where used in other modules
 vim.lsp.config("*", {
-	capabilities = require("blink.cmp").get_lsp_capabilities(),
+	capabilities = require("blink.cmp").get_lsp_capabilities({
+		workspace = {
+			didChangeWatchedFiles = { dynamicRegistration = true },
+		},
+	}),
+})
+
+vim.lsp.config("ts_ls", {
+	init_options = {
+		preferences = {
+			importModuleSpecifierEnding = "js",
+		},
+	},
 })
 
 -- Get Emmet working in template literals
@@ -129,7 +115,7 @@ vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "require" }, -- Recognize 'vim' as a global variable
+				globals = { "vim", "require" },
 			},
 		},
 	},
@@ -140,7 +126,31 @@ vim.lsp.config("lua_ls", {
 require("luasnip.loaders.from_vscode").lazy_load()
 
 ---------------------------------------
--- Telescope
+-- CONFORM (FORMATTING)
+---------------------------------------
+require("conform").setup({
+	formatters_by_ft = {
+		-- install formatters via Mason, then assign them here
+		lua = { "stylua" },
+		css = { "prettierd", "prettier", stop_after_first = true },
+		html = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "prettierd", "prettier", stop_after_first = true },
+		bash = { "beautysh" },
+		zsh = { "beautysh" },
+
+		-- need the following two lines for webmanifest to work
+		json = { "prettierd" },
+		webmanifest = { "prettierd" },
+	},
+
+	format_on_save = {
+		timeout_ms = 400,
+		lsp_format = "fallback",
+	},
+})
+
+---------------------------------------
+-- TELESCOPE
 ---------------------------------------
 require("telescope").setup({
 	pickers = {
@@ -158,19 +168,29 @@ require("telescope").setup({
 })
 
 ---------------------------------------
--- Rainbow Delimiters
+-- HIGHLIGHT COLORS
 ---------------------------------------
-vim.g.rainbow_delimiters = {
-	highlight = {
-		"yellow",
-		"RainbowDelimiterRed",
-		"RainbowDelimiterBlue",
-		"RainbowDelimiterOrange",
-		"RainbowDelimiterGreen",
-		"RainbowDelimiterViolet",
-		"RainbowDelimiterCyan",
+require("nvim-highlight-colors").setup({
+	enable_tailwind = true,
+})
+
+---------------------------------------
+-- MINI.FILES
+---------------------------------------
+require("mini.files").setup({
+	mappings = {
+		reveal_cwd = "@",
 	},
-}
+
+	options = {
+		permanent_delete = true,
+		use_as_default_explorer = true,
+	},
+
+	windows = {
+		preview = true,
+	},
+})
 
 -- Navic (breadcrumbs)
 require("nvim-navic").setup({
@@ -180,10 +200,14 @@ require("nvim-navic").setup({
 		auto_attach = true,
 		preference = nil,
 	},
+	format_text = function(text)
+		-- Strip parameters from functions and methods, keeping only the name
+		return text:gsub("%b().*", "")
+	end,
 })
 
 ---------------------------------------
--- Lualine
+-- LUALINE
 ---------------------------------------
 require("lualine").setup({
 	options = {
@@ -228,7 +252,7 @@ require("lualine").setup({
 })
 
 ---------------------------------------
--- Autopairs/Autotag
+-- AUTOPAIRS/AUTOTAG
 ---------------------------------------
 require("nvim-autopairs").setup({})
 require("nvim-ts-autotag").setup({
@@ -238,32 +262,9 @@ require("nvim-ts-autotag").setup({
 })
 
 ---------------------------------------
--- Conform (Formatting)
----------------------------------------
-require("conform").setup({
-	formatters_by_ft = {
-		-- install stylelua seperately (Mason)
-		lua = { "stylua" },
-		css = { "prettierd" },
-		html = { "prettierd" },
-		javascript = { "prettierd" },
-
-		-- need the following two lines for webmanifest to work
-		json = { "prettierd" },
-		webmanifest = { "prettierd" },
-	},
-
-	format_on_save = {
-		timeout_ms = 400,
-		lsp_format = "fallback",
-	},
-})
-
----------------------------------------
--- Themes
+-- THEMES
 ---------------------------------------
 -- Everforest
-
 vim.g.everforest_enable_italic = 1
 vim.g.everforest_inlay_hints_background = "dimmed"
 vim.g.everforest_better_performance = 1
@@ -277,5 +278,18 @@ vim.cmd.colorscheme("everforest")
 require("ember").setup({
 	variant = "ember-soft",
 })
+
+-- Rainbow Delimiters
+vim.g.rainbow_delimiters = {
+	highlight = {
+		"yellow",
+		"RainbowDelimiterRed",
+		"RainbowDelimiterBlue",
+		"RainbowDelimiterOrange",
+		"RainbowDelimiterGreen",
+		"RainbowDelimiterViolet",
+		"RainbowDelimiterCyan",
+	},
+}
 
 vim.cmd("hi! @punctuation.bracket gui=bold cterm=bold")
