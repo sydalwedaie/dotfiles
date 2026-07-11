@@ -12,6 +12,12 @@ Plug("saghen/blink.cmp", { ["tag"] = "v1.*" })
 Plug("rafamadriz/friendly-snippets")
 Plug("L3MON4D3/LuaSnip", { ["tag"] = "v2.*", ["do"] = "make install_jsregexp" })
 
+-- DAP
+Plug("mfussenegger/nvim-dap")
+Plug("jay-babu/mason-nvim-dap.nvim")
+Plug("nvim-neotest/nvim-nio")
+Plug("rcarriga/nvim-dap-ui")
+
 -- Editing Tools
 Plug("tpope/vim-commentary")
 Plug("windwp/nvim-autopairs")

@@ -6,6 +6,7 @@ local parsers = {
 	"c",
 	"css",
 	"csv",
+	"dart",
 	"diff",
 	"go",
 	"html",

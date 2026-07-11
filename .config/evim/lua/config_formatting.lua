@@ -8,12 +8,13 @@ require("conform").setup({
 		css = { "prettierd", "prettier", stop_after_first = true },
 		html = { "prettierd", "prettier", stop_after_first = true },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
+		markdown = { "prettierd", "prettier", stop_after_first = true },
 		bash = { "beautysh" },
 		zsh = { "beautysh" },
 
 		-- need the following two lines for webmanifest to work
-		json = { "prettierd" },
-		webmanifest = { "prettierd" },
+		json = { "prettierd", "prettier", stop_after_first = true },
+		webmanifest = { "prettierd", "prettier", stop_after_first = true },
 	},
 
 	format_on_save = {

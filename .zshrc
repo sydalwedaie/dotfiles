@@ -115,6 +115,8 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.2.0/bin:$PATH"
 export PATH="/opt/homebrew/Cellar/ctags/5.8_2/bin:$PATH"
+export PATH="$HOME/develop/flutter/bin:$PATH"
+
 
 export BAT_THEME=ansi
 

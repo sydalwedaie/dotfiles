@@ -38,4 +38,14 @@ vim.cmd("hi! @punctuation.bracket gui=bold cterm=bold")
 -- Highlight colors
 require("nvim-highlight-colors").setup({
 	enable_tailwind = true,
+	render = "virtual",
+	virtual_symbol = "󱓻",
+	-- this one has a small space "󱓻 "
+})
+
+-- Disable automatic highlights
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		vim.lsp.document_color.enable(false, { bufnr = ev.buf })
+	end,
 })

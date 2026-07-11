@@ -76,3 +76,4 @@ vim.lsp.config("lua_ls", {
 -- Snippets
 -- Make LuaSnip load VS Code style snippets from friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/develop/custom-snippets" } })
