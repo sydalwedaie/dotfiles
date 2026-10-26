@@ -8,7 +8,7 @@ require("mason-lspconfig").setup({
 
 -- I needed this to install non-lsp stuff!
 require("mason-tool-installer").setup({
-	ensure_installed = { "prettierd", "prettier", "stylua", "beautysh" },
+	ensure_installed = { "prettierd", "prettier", "stylua", "beautysh", "markdown-toc" },
 })
 
 require("blink.cmp").setup({

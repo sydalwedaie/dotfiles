@@ -18,7 +18,7 @@ require("conform").setup({
 	},
 
 	format_on_save = {
-		timeout_ms = 400,
+		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
 })
@@ -32,3 +32,8 @@ require("nvim-ts-autotag").setup({
 		enable_close = false, -- disable auto close
 	},
 })
+
+---------------------------------------
+-- Markdown TOC
+---------------------------------------
+require("nvim-toc").setup({})

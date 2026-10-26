@@ -72,7 +72,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview in 
 #####################
 # Aliases
 #####################
-alias lz='eza --icons --long --all --no-user --no-time --group-directories-first'
+alias lz='eza --icons --long --all --no-user --group-directories-first -h'
 alias ls='ls --color'
 
 alias ..='cd ..'
@@ -95,6 +95,7 @@ alias evim='NVIM_APPNAME="evim" nvim'
 
 # Apps
 alias bearcli='/Applications/Bear.app/Contents/MacOS/bearcli'
+alias add-heading="python3 ~/scripts/add-filename-as-heading.py"
 
 
 #####################

@@ -11,6 +11,10 @@ require("lualine").setup({
 	sections = {
 		lualine_b = {
 			"branch",
+			{
+				"diff",
+				padding = { left = 0, right = 1 },
+			},
 		},
 		lualine_c = {
 			{
@@ -36,9 +40,16 @@ require("lualine").setup({
 		lualine_a = {
 			{
 				"tabs",
-				mode = 1,
-				hide_filename_extension = false, -- Set true to hide extension
+				mode = 0,
 				show_modified_status = false,
+			},
+		},
+
+		lualine_z = {
+			{
+				"filename",
+				mode = 1,
+				file_status = false,
 			},
 		},
 	},
@@ -58,4 +69,19 @@ require("nvim-navic").setup({
 		-- Strip parameters from functions and methods, keeping only the name
 		return text:gsub("%b().*", "")
 	end,
+})
+
+---------------------------------------
+-- Blink.indent
+---------------------------------------
+-- The line character is copied from snacks.nvim
+require("blink.indent").setup({
+	static = {
+		char = "│",
+	},
+
+	scope = {
+		char = "│",
+		highlights = { "BlinkIndentBlue" },
+	},
 })

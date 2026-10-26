@@ -23,6 +23,7 @@ Plug("tpope/vim-commentary")
 Plug("windwp/nvim-autopairs")
 Plug("tpope/vim-surround")
 Plug("windwp/nvim-ts-autotag")
+Plug("richardbizik/nvim-toc")
 
 -- Themes/Styles
 Plug("sainnhe/everforest")
@@ -30,6 +31,7 @@ Plug("ember-theme/nvim")
 Plug("nvim-tree/nvim-web-devicons")
 Plug("hiphish/rainbow-delimiters.nvim")
 Plug("brenoprata10/nvim-highlight-colors")
+Plug("saghen/blink.indent")
 
 -- Utilities
 Plug("nvim-lua/plenary.nvim")

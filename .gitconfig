@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Sayed Alwedaie
-	email = 5216479+sydalwedaie@users.noreply.github.com 
+	email = 5216479+sydalwedaie@users.noreply.github.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -10,9 +10,19 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = vim
+	; editor = NVIM_APPNAME=\"evim\" nvim
+  editor = nvim
 	excludesfile = /Users/sydalwedaie/.gitignore_global
-[color]
 	ui = auto
 [pull]
 	rebase = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/sydalwedaie/.stCommitMsg
+[alias]
+	graph = log --oneline --abbrev-commit --all --graph --decorate --color

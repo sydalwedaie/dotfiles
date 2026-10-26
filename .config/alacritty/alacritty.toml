@@ -1,8 +1,8 @@
 [env]
-TERM = "xterm-256color" 
+TERM = "xterm-256color"
 
 [colors]
-cursor = { text="#000000", cursor = "#fcba03"}
+cursor = { text = "#000000", cursor = "#fcba03" }
 
 [font]
 normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
@@ -10,7 +10,7 @@ bold = { family = "UbuntuMono Nerd Font", style = "Bold" }
 italic = { family = "UbuntuMono Nerd Font", style = "Italic" }
 bold_italic = { family = "UbuntuMono Nerd Font", style = "Bold Italic" }
 
-size = 17 
+size = 17
 offset = { x = 0, y = 7 }
 glyph_offset = { x = 0, y = 4 }
 
@@ -22,38 +22,4 @@ opacity = 0.95
 blur = true
 
 [general]
-import = [
-  "~/.config/alacritty/everforest.toml"
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import = ["~/.config/alacritty/everforest-dark.toml"]

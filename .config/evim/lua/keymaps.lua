@@ -11,9 +11,6 @@ vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]ind [R]esume" })
 vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "[F]ind [C]ommands" })
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-vim.keymap.set("n", "<leader>fn", function()
-	builtin.find_files({ cwd = vim.fn.stdpath("config") })
-end, { desc = "[F]ind [N]eovim config files" })
 
 -- Mini Files
 local MiniFiles = require("mini.files")
@@ -27,7 +24,7 @@ vim.keymap.set("n", "<leader>e", toggle_mini_files, { desc = "Toggle mini.files 
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Write current buffer" })
 vim.keymap.set("t", "<C-w>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-vim.keymap.set("n", "<leader>s", ":set spell! spelllang=en_gb<cr>")
+vim.keymap.set("n", "<leader>ts", ":set spell! spelllang=en_gb<cr>")
 vim.keymap.set("n", "<leader>rm", "<cmd>MarkdownPreview<cr>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down in buffer with cursor centered" })
@@ -42,3 +39,9 @@ vim.keymap.set(
 	"<cmd>nohlsearch<CR>",
 	{ desc = "Clear highlights on search when pressing <Esc> in normal mode" }
 )
+
+-- Blink.indent
+local indent = require("blink.indent")
+vim.keymap.set("n", "<leader>ti", function()
+	indent.enable(not indent.is_enabled())
+end, { desc = "Toggle indent guides" })
