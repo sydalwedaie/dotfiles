@@ -1,4 +1,15 @@
 ---------------------------------------
+-- GENERAL
+---------------------------------------
+-- Bold Brackets
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("CustomHighlights", { clear = true }),
+	callback = function()
+		vim.api.nvim_set_hl(0, "@punctuation.bracket", { bold = true })
+	end,
+})
+
+---------------------------------------
 -- THEMES
 ---------------------------------------
 -- Everforest
@@ -30,12 +41,8 @@ vim.g.rainbow_delimiters = {
 }
 
 ---------------------------------------
--- STYLES
+-- HIGHLIGHT COLORS
 ---------------------------------------
--- Bold brackets
-vim.cmd("hi! @punctuation.bracket gui=bold cterm=bold")
-
--- Highlight colors
 require("nvim-highlight-colors").setup({
 	enable_tailwind = true,
 	render = "virtual",
@@ -43,7 +50,7 @@ require("nvim-highlight-colors").setup({
 	-- this one has a small space "󱓻 "
 })
 
--- Disable automatic highlights
+-- Disable built-in automatic highlights
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		vim.lsp.document_color.enable(false, { bufnr = ev.buf })
