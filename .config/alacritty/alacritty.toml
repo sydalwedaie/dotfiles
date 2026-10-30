@@ -21,6 +21,13 @@ startup_mode = "Maximized"
 opacity = 0.85
 blur = true
 
+[keyboard]
+bindings = [
+  { key = "T", mods = "Command|Shift", command = { program = "/bin/sh", args = [
+    "-c",
+    "$HOME/scripts/toggle-theme.sh",
+  ] } },
+]
+
 [general]
-# import = ["~/.config/alacritty/everforest-light.toml"]
-import = ["~/.config/alacritty/everforest-light.toml"]
+import = ["~/.config/alacritty/everforest-dark.toml"]
