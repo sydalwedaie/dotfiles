@@ -3,7 +3,16 @@
 ---------------------------------------
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "cssls", "html", "ts_ls", "emmet_language_server", "lua_ls", "jsonls", "bashls" },
+	ensure_installed = {
+		"cssls",
+		"html",
+		"ts_ls",
+		"emmet_language_server",
+		"lua_ls",
+		"jsonls",
+		"bashls",
+		"css_variables",
+	},
 })
 
 -- I needed this to install non-lsp stuff!
