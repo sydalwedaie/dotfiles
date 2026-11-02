@@ -10,8 +10,8 @@
 [init]
 	defaultBranch = main
 [core]
-	; editor = NVIM_APPNAME=\"evim\" nvim
-  editor = nvim
+	editor = NVIM_APPNAME=\"evim\" nvim
+  ; editor = nvim
 	excludesfile = /Users/sydalwedaie/.gitignore_global
 	ui = auto
 [pull]

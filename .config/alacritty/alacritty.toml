@@ -18,7 +18,7 @@ glyph_offset = { x = 0, y = 4 }
 dynamic_padding = true
 decorations = "none"
 startup_mode = "Maximized"
-opacity = 0.85
+opacity = 0.95
 blur = true
 
 [general]
